@@ -4,7 +4,10 @@
 		<OutputType>WinExe</OutputType>
 		<TargetFramework>net8.0-windows</TargetFramework>
 		<UseWPF>true</UseWPF>
-
+		<!-- Windows Form -->
+		<UseWindowsForms>true</UseWindowsForms>
+		<!-- WPF -->
+		<UseWPF>true</UseWPF>
 		<!-- Publish settings -->
 		<PublishSingleFile>true</PublishSingleFile>
 		<!-- Single EXE -->

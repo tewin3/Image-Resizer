@@ -1,18 +1,62 @@
 ﻿<Window x:Class="ImageResizerApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Image Resizer" Height="300" Width="400">
-    <StackPanel Margin="10">
-        <Button Name="btnSelect" Click="BtnSelect_Click" Width="238">Select Image</Button>
+        Title="Image Resizer Pro" Height="520" Width="750"
+        AllowDrop="True" Drop="Window_Drop">
 
-        <TextBlock Text="Width:" Margin="0,10,0,0"/>
-        <TextBox Name="txtWidth"/>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Height:" Margin="0,10,0,0"/>
-        <TextBox Name="txtHeight"/>
+        <!-- LEFT: Controls -->
+        <StackPanel Grid.Column="0" Margin="10">
 
-        <Button Name="btnResize" Click="BtnResize_Click" Margin="0,10,0,0" Height="45" Width="150">
-            Resize
-        </Button>
-    </StackPanel>
+            <TextBlock Text="Images" FontWeight="Bold"/>
+            <Button Click="BtnSelectImages_Click">Select Images</Button>
+            <Button Click="BtnSelectFolder_Click" Margin="0,5">Output Folder</Button>
+
+            <TextBlock Text="Dimensions" Margin="0,10,0,0"/>
+            <TextBlock Text="Width"/>
+            <TextBox Name="txtWidth"/>
+
+            <TextBlock Text="Height" Margin="0,5,0,0"/>
+            <TextBox Name="txtHeight"/>
+
+            <CheckBox Name="chkAspect" Content="Lock Aspect Ratio" IsChecked="True"/>
+
+            <TextBlock Text="Format" Margin="0,10,0,0"/>
+            <ComboBox Name="cmbFormat" SelectedIndex="0">
+                <ComboBoxItem Content="jpg"/>
+                <ComboBoxItem Content="png"/>
+                <ComboBoxItem Content="bmp"/>
+            </ComboBox>
+
+            <TextBlock Text="Quality (JPG)" Margin="0,10,0,0"/>
+            <Slider Name="sliderQuality" Minimum="10" Maximum="100" Value="90"/>
+
+            <Button Click="BtnResize_Click" Margin="0,15,0,0" Height="40">
+                Resize Images
+            </Button>
+
+            <ProgressBar Name="progressBar" Height="20" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <!-- RIGHT: Preview + List -->
+        <Grid Grid.Column="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+
+            <!-- Preview -->
+            <Border BorderBrush="Gray" BorderThickness="1" Margin="0,0,0,10">
+                <Image Name="imgPreview" Stretch="Uniform"/>
+            </Border>
+
+            <!-- File List -->
+            <ListBox Name="lstFiles" Grid.Row="1"/>
+        </Grid>
+    </Grid>
 </Window>
