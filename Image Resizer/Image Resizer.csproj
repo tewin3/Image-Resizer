@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+
+		<!-- Publish settings -->
+		<PublishSingleFile>true</PublishSingleFile>
+		<!-- Single EXE -->
+		<SelfContained>true</SelfContained>
+		<!-- Include .NET runtime -->
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<!-- 64-bit Windows -->
+		<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+		<PublishTrimmed>false</PublishTrimmed>
+		<!-- safer for WPF images/UI -->
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SixLabors.ImageSharp" Version="2.1.13" />
+	</ItemGroup>
+
+</Project>

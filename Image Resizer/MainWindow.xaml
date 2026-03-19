@@ -1,0 +1,18 @@
+﻿<Window x:Class="ImageResizerApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Image Resizer" Height="300" Width="400">
+    <StackPanel Margin="10">
+        <Button Name="btnSelect" Click="BtnSelect_Click" Width="238">Select Image</Button>
+
+        <TextBlock Text="Width:" Margin="0,10,0,0"/>
+        <TextBox Name="txtWidth"/>
+
+        <TextBlock Text="Height:" Margin="0,10,0,0"/>
+        <TextBox Name="txtHeight"/>
+
+        <Button Name="btnResize" Click="BtnResize_Click" Margin="0,10,0,0" Height="45" Width="150">
+            Resize
+        </Button>
+    </StackPanel>
+</Window>
